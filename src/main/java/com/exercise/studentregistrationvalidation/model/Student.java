@@ -4,6 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.validation.constraints.AssertTrue;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
@@ -61,6 +62,10 @@ public class Student {
     @Pattern(regexp = "^[0-9]+${10}", message = "Min 10 digits")
     private String phoneNumber;
 
+    @AssertTrue(message = "Course selection is required")
+    public boolean isCourseSelected() {
+        return !"0".equals(course);
+    }
 
     @NotNull(message = "Field required")
     private String course;

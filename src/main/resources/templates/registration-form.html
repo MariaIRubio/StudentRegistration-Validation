@@ -85,6 +85,7 @@
                     <option value="Online Marketing">Online Marketing</option>
                 </select>
                 <span th:if="${#fields.hasErrors('course')}" th:errors="*{course}" class="error"/>
+                <span th:if="${#fields.hasErrors('course')}" class="error">Course selection is required</span>
             </div>
         </div>
         <div class="text-center">
